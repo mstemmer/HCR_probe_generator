@@ -1,9 +1,10 @@
-def maker(name,fullseq,amplifier,pause,choose,polyAT,polyCG,BlastProbes,db,dropout,show,report,maxprobe,numbr): 
+def maker(name,fullseq,amplifier,pause,choose,polyAT,polyCG,BlastProbes,db,dropout,show,report,maxprobe,numbr,outfile): 
     from Bio.Seq import Seq
     from Bio.Blast.Applications import NcbiblastnCommandline as bn
     import io
     import numpy as np
     import pandas as pd
+    import csv
     pd.set_option('display.max_columns', 500)
     pd.set_option('display.max_rows',5000)
     pd.set_option('display.width', 80)
@@ -509,6 +510,8 @@ def maker(name,fullseq,amplifier,pause,choose,polyAT,polyCG,BlastProbes,db,dropo
                     a=0
                     b=0
                     seqs1={}
+
+                    df_IDTprobes = pd.DataFrame({'Pool name': [], 'Sequence': []})
                     while a < len(seqs):
                     #while a < len(uniques):
                         tmp = (seqs[a])
@@ -518,6 +521,14 @@ def maker(name,fullseq,amplifier,pause,choose,polyAT,polyCG,BlastProbes,db,dropo
                         seqs1[b]=tmp
                         b+=1
                         a+=1
+                        # probe_a = str(amplifier+'_'+name+'_'+count+'_Dla'+str(pause)+','+upinit+uspc+str(tmp[1][27:52]))
+                        probe_name = str(f'{amplifier}_{name}_{count}_Dla{pause}')
+                        probe_a_seq = str(f'{upinit}{uspc}{tmp[1][27:52]}')
+                        probe_b_seq = str(f'{tmp[1][0:25]}{dspc}{dninit}')
+
+                        df_IDTprobes_new = pd.DataFrame({'Pool name': [probe_name, probe_name], 'Sequence': [probe_a_seq, probe_b_seq]})
+                        df_IDTprobes = df_IDTprobes.append(df_IDTprobes_new, ignore_index=True)
+                    df_IDTprobes.to_csv(outfile, index=None)
                     seqs=seqs1
                     
                     
@@ -525,6 +536,8 @@ def maker(name,fullseq,amplifier,pause,choose,polyAT,polyCG,BlastProbes,db,dropo
                     g = g.join(graphic) 
                     g = Seq(g)
                     g = g.reverse_complement()
+
+                
             else:
                 print()
                 print()

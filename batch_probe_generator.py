@@ -1,7 +1,7 @@
 # create environment
 # conda create -n hcr_probe_generator -c bioconda biopython numpy=1.23.5 pandas=1.3.5 blast
 
-from maker37cb import maker
+from maker37cb_mod import maker
 import os
 import pandas as pd
 from contextlib import redirect_stdout
