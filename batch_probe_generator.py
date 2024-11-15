@@ -17,11 +17,12 @@ report = "y"
 maxprobe = "y"
 numbr = 0
 
+in_file = "input.csv"
 db = "/home/mstemmer/repos/insitu_probe_generator/Danio_rerio.GRCz11.cdna.all.fa"
 outpath = "/home/mstemmer/repos/insitu_probe_generator/"
 
 
-input_df = pd.read_csv("input.csv")
+input_df = pd.read_csv(in_file)
 
 for index, row in input_df.iterrows():
     print(f'Working on {row["name"]} ...')
