@@ -2,3 +2,4 @@
 *.fasta
 *.gz
 *.csv
+!targets/example_input.csv
