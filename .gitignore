@@ -2,4 +2,6 @@
 *.fasta
 *.gz
 *.csv
+*.txt
+*.xlsx
 !targets/example_input.csv
