@@ -5,3 +5,4 @@
 *.txt
 *.xlsx
 !targets/example_input.csv
+__pycache__
