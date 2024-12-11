@@ -390,7 +390,8 @@ def maker(name,fullseq,amplifier,pause,choose,polyAT,polyCG,BlastProbes,db,dropo
             seqs={} 
             remove = pd.DataFrame(columns = ["pos1","seq","pos2","fasta","num"])
             a=0
-            tmpFA = open((str(name)+"PrelimProbes.fa"), "w")
+            prelimfile = f'prelim_probes/{str(name)+"PrelimProbes.fa"}'
+            tmpFA = open(prelimfile, "w")
             while a < len(newlist):
                 nm = str('>'+str(a))
                 seqs[a] = [newlist[a][0],str(fullseq[newlist[a][0]:(newlist[a][0]+25)]+"nn"+fullseq[(newlist[a][0]+27):newlist[a][1]]),newlist[a][1],nm,a]
@@ -408,7 +409,7 @@ def maker(name,fullseq,amplifier,pause,choose,polyAT,polyCG,BlastProbes,db,dropo
             
         ## Probe BLAST setup and execution from FASTA file prepared in previous step
 
-            cline = bn(query = str(name)+"PrelimProbes.fa", subject = db, outfmt = 6, task = 'blastn-short') #this uses biopython's blastn formatting function and creates a commandline compatible command 
+            cline = bn(query = prelimfile, subject = db, outfmt = 6, task = 'blastn-short') #this uses biopython's blastn formatting function and creates a commandline compatible command 
             stdout, stderr = cline() #cline() calls the string as a command and passes it to the command line, outputting the blast results to one variable and errors to the other
 
             ## From results of blast creating a numpy array (and Pandas database)
