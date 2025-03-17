@@ -17,7 +17,9 @@ Use batch_probe_generator.ipynb to generate HCR probes for all genes, listed in 
 
 3. Download and paste the required BLAST reference files in the references folder:
     * extract the file; should end with .fa
-
+4. Run all the cells in the notebook "batch_probe_generator.ipynb"
+    * make sure you have created and selected the correct python environment
+    * see beginning of notebook for creating the conda environment
 4. Find your HCR probes in the generated_probes folder
     * contains also the .xlsx file to upload to IDT
  
