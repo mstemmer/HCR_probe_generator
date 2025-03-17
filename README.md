@@ -1,6 +1,6 @@
 # HCR probe generator
 
-This code is based on https://github.com/rwnull/insitu_probe_generator
+This code is an add-on to https://github.com/rwnull/insitu_probe_generator
 
 Use batch_probe_generator.ipynb to generate HCR probes for all genes, listed in a csv file.
 
