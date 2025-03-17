@@ -21,5 +21,5 @@ Use batch_probe_generator.ipynb to generate HCR probes for all genes, listed in 
     * make sure you have created and selected the correct python environment
     * see beginning of notebook for creating the conda environment
 4. Find your HCR probes in the generated_probes folder
-    * contains also the .xlsx file to upload to IDT
+    * contains also the .xlsx file to upload to IDT with all the generated oligo pools
  
