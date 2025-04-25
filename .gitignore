@@ -5,5 +5,11 @@
 *.csv
 *.txt
 *.xlsx
+generated_probes/*
+!generated_probes/example_HCR_probes/*.csv
+!generated_probes/example_HCR_probes/*.txt
+!generated_probes/example_HCR_probes/*.xlsx
+!generated_probes/example_HCR_probes/
 !targets/example_input.csv
+!targets/example_HCR_probes.csv
 __pycache__

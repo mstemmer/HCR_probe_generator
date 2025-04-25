@@ -2,6 +2,11 @@
 
 This code is an add-on to https://github.com/rwnull/insitu_probe_generator
 
+Create python environment and activate:
+```
+conda create -n hcr_probe_generator -c bioconda biopython numpy=1.23.5 pandas=1.3.5 blast openpyxl
+```
+
 Use batch_probe_generator.ipynb to generate HCR probes for all genes, listed in a csv file.
 
 1. Create a google or excel sheet of your targets:
